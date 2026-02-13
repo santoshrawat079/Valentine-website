@@ -54,7 +54,7 @@ const JourneySection = () => {
   }, []);
 
   return (
-    <section ref={ref} className="min-h-screen flex flex-col items-center justify-center px-4 py-20">
+    <section ref={ref} className="flex flex-col items-center justify-center px-4 py-10 md:py-20">
       <h2 className="font-heading text-4xl md:text-6xl text-accent glow-text mb-12">Our Journey 💕</h2>
 
       <div className="max-w-lg text-center space-y-3 mb-12">

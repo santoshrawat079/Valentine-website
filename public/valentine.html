@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To My Ashmi ❤️ - From Santosh</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --romantic-pink: #ff4d6d;
+            --blush-bg: #ffe5ec;
+            --white: #ffffff;
+            --deep-red: #c9184a;
+            --cream: #fff8f0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffe5ec 0%, #ffd1dc 50%, #ffe5ec 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating Background Elements */
+        .floating-element {
+            position: fixed;
+            font-size: 2rem;
+            opacity: 0.6;
+            animation: float 15s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) translateX(0px) rotate(0deg);
+            }
+
+            25% {
+                transform: translateY(-30px) translateX(10px) rotate(5deg);
+            }
+
+            50% {
+                transform: translateY(-60px) translateX(-10px) rotate(-5deg);
+            }
+
+            75% {
+                transform: translateY(-30px) translateX(5px) rotate(3deg);
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            width: 95%;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Section Spacing */
+        section {
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 70px 0;
+            }
+        }
+
+        /* Headings */
+        h1,
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            color: var(--deep-red);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            text-shadow: 0 0 20px rgba(255, 77, 109, 0.3);
+        }
+
+        h2 {
+            font-size: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 15px solid var(--white);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            object-fit: cover;
+            margin-bottom: 40px;
+            animation: gentleRotate 20s infinite linear;
+        }
+
+        @keyframes gentleRotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-photo {
+                width: 250px;
+                height: 250px;
+            }
+        }
+
+        .hero-text {
+            font-size: 1.5rem;
+            color: var(--deep-red);
+            font-weight: 300;
+            line-height: 1.8;
+            margin-top: 20px;
+        }
+
+        /* Photo Collage */
+        .photo-collage {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 60px 0;
+            position: relative;
+        }
+
+        .collage-photo {
+            width: 200px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .collage-photo:nth-child(1) {
+            transform: rotate(-5deg);
+        }
+
+        .collage-photo:nth-child(2) {
+            transform: rotate(3deg) translateY(-10px);
+        }
+
+        .collage-photo:nth-child(3) {
+            transform: rotate(-3deg);
+        }
+
+        .collage-photo:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            z-index: 10;
+        }
+
+        @media (max-width: 768px) {
+            .collage-photo {
+                width: 150px;
+                height: 200px;
+            }
+        }
+
+        /* Love Letter Card */
+        .love-letter {
+            background: linear-gradient(135deg, var(--cream) 0%, #fff 100%);
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            margin: 60px auto;
+            max-width: 700px;
+            position: relative;
+            border: 2px solid rgba(255, 77, 109, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .love-letter {
+                padding: 40px 25px;
+            }
+        }
+
+        .letter-text {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: #333;
+            text-align: left;
+            font-weight: 300;
+        }
+
+        .letter-text strong {
+            color: var(--deep-red);
+            font-weight: 600;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--deep-red);
+            margin-top: 40px;
+            text-align: right;
+        }
+
+        .heart-pulse {
+            display: inline-block;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* Proposal Section */
+        #proposal {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .puppy-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            margin-bottom: 40px;
+            object-fit: cover;
+            box-shadow: 0 0 40px rgba(255, 77, 109, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .puppy-image {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        .proposal-text {
+            font-size: 2rem;
+            color: var(--deep-red);
+            line-height: 1.8;
+            margin: 30px 0;
+            text-shadow: 0 0 20px rgba(255, 77, 109, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .proposal-text {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Buttons */
+        .button-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        button {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 20px 60px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            button {
+                font-size: 1.2rem;
+                padding: 15px 40px;
+            }
+        }
+
+        #yes-btn {
+            background: linear-gradient(135deg, var(--romantic-pink), var(--deep-red));
+            color: white;
+            animation: sparkle 2s infinite;
+        }
+
+        @keyframes sparkle {
+
+            0%,
+            100% {
+                box-shadow: 0 10px 30px rgba(255, 77, 109, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 10px 50px rgba(255, 77, 109, 0.8), 0 0 30px rgba(255, 77, 109, 0.6);
+            }
+        }
+
+        #yes-btn:hover {
+            transform: scale(1.1);
+        }
+
+        #no-btn {
+            background: #ddd;
+            color: #666;
+            position: absolute;
+        }
+
+        #no-btn:hover {
+            background: #ccc;
+        }
+
+        /* Sad Emoji Popup */
+        .sad-emoji {
+            position: fixed;
+            font-size: 3rem;
+            z-index: 1000;
+            pointer-events: none;
+            animation: fadeOut 2s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+        }
+
+        /* Celebration Screen */
+        #celebration {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff4d6d 0%, #ff758f 50%, #ffa3b8 100%);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: brighten 1s forwards;
+        }
+
+        @keyframes brighten {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .celebration-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: white;
+            text-align: center;
+            text-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+            animation: heartBurst 0.8s ease-out;
+        }
+
+        @keyframes heartBurst {
+            0% {
+                transform: scale(0);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .celebration-text {
+                font-size: 2rem;
+                padding: 0 20px;
+            }
+        }
+
+        .celebration-gif {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            margin: 40px 0;
+        }
+
+        @media (max-width: 768px) {
+            .celebration-gif {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        /* Final Message */
+        #final-message {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ffe5ec 0%, #ffd1dc 100%);
+            z-index: 10001;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 40px;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .final-text {
+            font-size: 1.8rem;
+            color: var(--deep-red);
+            line-height: 2.2;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        @media (max-width: 768px) {
+            .final-text {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Kiss Emoji Floaters */
+        .kiss-emoji {
+            position: absolute;
+            font-size: 2.5rem;
+            opacity: 0.7;
+            animation: floatKiss 10s infinite ease-in-out;
+        }
+
+        @keyframes floatKiss {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-40px) rotate(20deg);
+            }
+        }
+
+        /* Hidden class */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Crying GIF */
+        .crying-gif {
+            position: fixed;
+            width: 150px;
+            height: 150px;
+            z-index: 1001;
+            pointer-events: none;
+            animation: fadeOut 3s forwards;
+        }
+
+        /* Memory Gallery Styles - POLAROID ALBUM */
+        .memory-gallery {
+            margin: 80px 0;
+            padding: 40px 20px;
+            background-color: #f7e1e6;
+            background-image: radial-gradient(#ff4d6d 1px, transparent 1px);
+            background-size: 20px 20px;
+            border-radius: 20px;
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            width: 280px;
+            background: #fff;
+            padding: 15px 15px 50px 15px;
+            /* Polaroid bottom spacing */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-origin: center;
+            cursor: pointer;
+        }
+
+        /* Random rotation effect using nth-child */
+        .gallery-item:nth-child(odd) {
+            transform: rotate(3deg);
+        }
+
+        .gallery-item:nth-child(even) {
+            transform: rotate(-2deg);
+        }
+
+        .gallery-item:nth-child(3n) {
+            transform: rotate(5deg);
+        }
+
+        .gallery-item:nth-child(4n) {
+            transform: rotate(-4deg);
+        }
+
+        .gallery-item:nth-child(5n) {
+            transform: rotate(2deg);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.1) rotate(0deg) !important;
+            z-index: 50;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .gallery-item img,
+        .gallery-item video {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+
+        /* Cinematic Video Style */
+        .gallery-item.video-item {
+            background: #000;
+            padding: 10px;
+            border: 4px solid var(--romantic-pink);
+            animation: borderPulse 3s infinite;
+        }
+
+        .gallery-item.video-item:hover {
+            animation: none;
+            border-color: #fff;
+        }
+
+        @keyframes borderPulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 77, 109, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 20px rgba(255, 77, 109, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 77, 109, 0);
+            }
+        }
+
+        .gallery-item.video-item::after {
+            content: '▶';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: white;
+            background: rgba(255, 77, 109, 0.9);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item.video-item:hover::after {
+            transform: translate(-50%, -50%) scale(1.2);
+            background: var(--deep-red);
+        }
+
+
+
+
+
+
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-content img,
+        .lightbox-content video {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(255, 77, 109, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            color: white;
+            cursor: pointer;
+            background: rgba(255, 77, 109, 0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+        }
+
+        .lightbox-close:hover {
+            background: var(--romantic-pink);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            color: white;
+            cursor: pointer;
+            background: rgba(255, 77, 109, 0.6);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: var(--romantic-pink);
+        }
+
+        .lightbox-nav.prev {
+            left: 20px;
+        }
+
+        .lightbox-nav.next {
+            right: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+
+            .lightbox-close {
+                width: 40px;
+                height: 40px;
+                font-size: 2rem;
+            }
+        }
+
+        /* Auto-playing slideshow */
+        .slideshow-container {
+            position: relative;
+            max-width: 600px;
+            margin: 60px auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .slideshow-item {
+            display: none;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .slideshow-item.active {
+            display: block;
+            animation: fadeInSlide 1s ease-in-out;
+        }
+
+        @keyframes fadeInSlide {
+            from {
+                opacity: 0;
+                transform: scale(1.1);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slideshow-container {
+                max-width: 100%;
+            }
+
+            .slideshow-item {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating Background Elements -->
+    <div id="floating-container"></div>
+
+    <div class="container">
+        <!-- HERO SECTION -->
+        <section id="hero">
+            <img src="photos/hero-couple.jpg" alt="Ashmi & Santosh" class="hero-photo" id="hero-photo">
+            <h1>Ashmi ❤️</h1>
+            <h2>From Your Santosh 😘</h2>
+            <p class="hero-text">
+                4+ years with you…<br>
+                And I still get butterflies. 💕
+            </p>
+            <div class="kiss-emoji" style="top: 10%; left: 10%; animation-delay: 0s;">😘</div>
+            <div class="kiss-emoji" style="top: 20%; right: 15%; animation-delay: 2s;">❤️</div>
+            <div class="kiss-emoji" style="bottom: 30%; left: 20%; animation-delay: 4s;">💖</div>
+            <div class="kiss-emoji" style="bottom: 20%; right: 10%; animation-delay: 1s;">🎈</div>
+        </section>
+
+        <!-- OUR JOURNEY SECTION -->
+        <section id="journey">
+            <h2>Our Beautiful Journey Together 💕</h2>
+            <p class="hero-text" style="margin-bottom: 40px;">
+                4+ Years of Love, Laughter, and Memories ❤️😘
+            </p>
+
+            <!-- Auto-playing Slideshow -->
+            <div class="slideshow-container" id="slideshow">
+                <!-- Photos will be dynamically loaded here -->
+            </div>
+
+            <div class="love-letter">
+                <p class="letter-text">
+                    <strong>My Ashmi,</strong><br><br>
+
+                    The first time we talked…<br>
+                    I didn't know you would become my forever.<br><br>
+
+                    We laughed together.<br>
+                    We cried together.<br>
+                    We fought sometimes.<br>
+                    But we always chose each other.<br><br>
+
+                    <strong>4 years.</strong><br>
+                    Thousands of memories.<br>
+                    One heart. ❤️😘
+                </p>
+            </div>
+
+            <!-- Complete Memory Gallery -->
+            <h2 style="margin-top: 80px;">All Our Memories 💖</h2>
+            <p class="hero-text" style="margin-bottom: 40px;">
+                Click any photo or video to view fullscreen! 📸🎥
+            </p>
+
+            <div class="memory-gallery">
+                <div class="gallery-grid" id="gallery">
+                    <!-- Photos and videos will be dynamically loaded here -->
+                </div>
+            </div>
+
+            <div class="kiss-emoji" style="top: 5%; left: 5%; animation-delay: 1s;">😘</div>
+            <div class="kiss-emoji" style="top: 15%; right: 8%; animation-delay: 3s;">💕</div>
+            <div class="kiss-emoji" style="bottom: 10%; left: 12%; animation-delay: 2s;">❤️</div>
+            <div class="kiss-emoji" style="top: 50%; left: 3%; animation-delay: 4s;">🎈</div>
+            <div class="kiss-emoji" style="top: 70%; right: 5%; animation-delay: 1.5s;">💖</div>
+        </section>
+
+        <!-- LOVE LETTER SECTION -->
+        <section id="letter-section">
+            <h2>A Letter For You 💌</h2>
+
+            <div class="love-" id="main-letter">
+                <p class="letter-text">
+                    <strong>My Dearest Ashmi,</strong><br><br>
+
+                    These four years taught me what love truly means.<br><br>
+
+                    You are my happiness when I am sad.<br>
+                    You are my calm when I am stressed.<br>
+                    You are my strength when I feel weak.<br><br>
+
+                    When life becomes hard —<br>
+                    I promise I will stay.<br><br>
+
+                    When the world feels heavy —<br>
+                    I will stand beside you.<br><br>
+
+                    I don't just love you.<br>
+                    I choose you.<br>
+                    Every day. ❤️<br><br>
+                </p>
+                <p class="signature">
+                    <span class="heart-pulse">Forever yours,</span><br>
+                    Santosh <span class="heart-pulse">❤️</span>😘
+                </p>
+            </div>
+
+            <!-- Featured Collection Frame -->
+            <div class="featured-frame-container" style="margin: 60px 0; text-align: center;">
+                <h2 style="font-family: 'Dancing Script', cursive; color: var(--deep-red); margin-bottom: 30px;">Our
+                    Favorite Moment 💖</h2>
+                <div class="collection-frame">
+                    <img src="photos/hero-couple.jpg" alt="Our Favorite Moment" class="featured-photo">
+                </div>
+            </div>
+
+            <style>
+                .collection-frame {
+                    position: relative;
+                    display: inline-block;
+                    padding: 40px;
+                    background-color: #fdfbf7;
+                    box-shadow:
+                        inset 0 0 20px rgba(0, 0, 0, 0.2),
+                        0 20px 50px rgba(0, 0, 0, 0.3),
+                        0 0 0 20px #eecbb1,
+                        /* Inner wood */
+                        0 0 0 40px #8b5a2b,
+                        /* Middle wood */
+                        0 0 0 45px #5e3b1f;
+                    /* Outer wood border */
+                    border-radius: 5px;
+                    transform: rotate(-2deg);
+                    transition: transform 0.3s ease;
+                    max-width: 80%;
+                }
+
+                .collection-frame:hover {
+                    transform: rotate(0deg) scale(1.02);
+                }
+
+                .featured-photo {
+                    display: block;
+                    max-width: 100%;
+                    height: auto;
+                    max-height: 500px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                }
+
+                /* Add a "glass" reflection effect */
+                .collection-frame::after {
+                    content: '';
+                    position: absolute;
+                    top: 40px;
+                    left: 40px;
+                    right: 40px;
+                    bottom: 40px;
+                    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%);
+                    pointer-events: none;
+                }
+            </style>
+        </section>
+
+        <!-- PROPOSAL SECTION -->
+        <section id="proposal">
+            <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Puppy Eyes" class="puppy-image"
+                id="puppy-gif">
+
+            <div class="kiss-emoji" style="top: 10%; left: 15%; animation-delay: 1s;">🎈</div>
+            <div class="kiss-emoji" style="top: 20%; right: 18%; animation-delay: 0s;">😘</div>
+            <div class="kiss-emoji" style="bottom: 25%; left: 10%; animation-delay: 3s;">💕</div>
+            <div class="kiss-emoji" style="bottom: 30%; right: 12%; animation-delay: 2s;">🎈</div>
+
+            <div class="proposal-text" id="proposal-text">
+                <span>Ashmi… 🥺</span><br>
+                <span>After 4 beautiful years…</span><br>
+                <span>After every laugh... every tear... every memory…</span><br><br>
+                <span><strong>Will you be my Valentine?</strong></span><br><br>
+                <span>Not just for a day…</span><br>
+                <span>But for every tomorrow? 💘😘</span>
+            </div>
+
+            <div class="button-container">
+                <button id="yes-btn">YES SANTOSH ❤️😘</button>
+                <button id="no-btn">No...</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- CELEBRATION SCREEN -->
+    <div id="celebration">
+        <div class="celebration-text">
+            SHE SAID YES!!! 🎉💖<br>
+            ASHMI + SANTOSH<br>
+            FOREVER ❤️😘
+        </div>
+        <img src="https://media.giphy.com/media/g9582DNuQppxC/giphy.gif" alt="Celebration" class="celebration-gif">
+    </div>
+
+    <!-- FINAL MESSAGE -->
+    <div id="final-message">
+        <div class="final-text">
+            <h1 style="margin-bottom: 40px;">Ashmi ❤️</h1>
+
+            No matter what life brings —<br>
+            I promise to stay with you<br>
+            In hard days and happy days.<br><br>
+
+            <strong>4 years down.</strong><br>
+            <strong>A lifetime to go.</strong><br><br>
+
+            I love you more than words can say.<br><br>
+
+            <span style="font-family: 'Dancing Script', cursive; font-size: 2.5rem;">
+                — Your Santosh 😘💖
+            </span>
+        </div>
+    </div>
+
+    <script>
+        // Register GSAP ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Create floating background elements
+        function createFloatingElements() {
+            const container = document.getElementById('floating-container');
+            const elements = ['❤️', '💕', '💖', '😘', '🎈', '💗', '💝', '🦋', '💋', '😍'];
+
+            for (let i = 0; i < 30; i++) {
+                const elem = document.createElement('div');
+                elem.className = 'floating-element';
+                elem.textContent = elements[Math.floor(Math.random() * elements.length)];
+                elem.style.left = Math.random() * 100 + '%';
+                elem.style.top = Math.random() * 100 + '%';
+                elem.style.animationDelay = Math.random() * 15 + 's';
+                elem.style.animationDuration = (10 + Math.random() * 10) + 's';
+                container.appendChild(elem);
+            }
+        }
+
+        createFloatingElements();
+
+        // Hero photo rotation animation
+        gsap.to('#hero-photo', {
+            rotation: 360,
+            duration: 20,
+            repeat: -1,
+            ease: 'none'
+        });
+
+        // Fade in animations on scroll
+        gsap.from('#journey', {
+            scrollTrigger: {
+                trigger: '#journey',
+                start: 'top 80%',
+            },
+            opacity: 0,
+            y: 50,
+            duration: 1
+        });
+
+        // Stagger animation for photo collage
+        gsap.from('.collage-photo', {
+            scrollTrigger: {
+                trigger: '.photo-collage',
+                start: 'top 80%',
+            },
+            opacity: 0,
+            y: 100,
+            rotation: 20,
+            stagger: 0.3,
+            duration: 1,
+            ease: 'back.out(1.7)'
+        });
+
+        // Letter section animation
+        gsap.from('#main-letter', {
+            scrollTrigger: {
+                trigger: '#main-letter',
+                start: 'top 80%',
+            },
+            opacity: 0,
+            scale: 0.8,
+            duration: 1.2,
+            ease: 'power3.out'
+        });
+
+        // Proposal text animation
+        gsap.from('#proposal-text span', {
+            scrollTrigger: {
+                trigger: '#proposal',
+                start: 'top 60%',
+            },
+            opacity: 0,
+            y: 20,
+            stagger: 0.3,
+            duration: 0.8
+        });
+
+        // NO BUTTON ESCAPE BEHAVIOR
+        const noBtn = document.getElementById('no-btn');
+        const yesBtn = document.getElementById('yes-btn');
+        let noClickCount = 0;
+        const sadMessages = [
+            "Are you sure? 🥺",
+            "Don't break my heart 💔",
+            "Santosh will cry 😢",
+            "Please Ashmi 😭",
+            "No option disabled 😤"
+        ];
+
+        // Position no button initially
+        function positionNoButton() {
+            const container = document.getElementById('proposal');
+            const rect = container.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+
+            noBtn.style.left = (rect.width / 2 + 100) + 'px';
+            noBtn.style.top = 'auto';
+            noBtn.style.bottom = '50px';
+        }
+
+        positionNoButton();
+
+        function moveNoButton() {
+            const container = document.getElementById('proposal');
+            const rect = container.getBoundingClientRect();
+
+            const maxX = rect.width - 200;
+            const maxY = rect.height - 100;
+
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+
+            gsap.to(noBtn, {
+                x: newX - noBtn.offsetLeft,
+                y: newY - noBtn.offsetTop,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        }
+
+        function showSadEmoji(emoji, text) {
+            const sadDiv = document.createElement('div');
+            sadDiv.className = 'sad-emoji';
+            sadDiv.textContent = emoji;
+            sadDiv.style.left = (noBtn.getBoundingClientRect().left - 50) + 'px';
+            sadDiv.style.top = (noBtn.getBoundingClientRect().top - 50) + 'px';
+            document.body.appendChild(sadDiv);
+
+            setTimeout(() => sadDiv.remove(), 2000);
+
+            // Show text message
+            const textDiv = document.createElement('div');
+            textDiv.style.position = 'fixed';
+            textDiv.style.left = '50%';
+            textDiv.style.top = '20%';
+            textDiv.style.transform = 'translateX(-50%)';
+            textDiv.style.fontSize = '1.5rem';
+            textDiv.style.color = 'var(--deep-red)';
+            textDiv.style.fontWeight = 'bold';
+            textDiv.style.zIndex = '1001';
+            textDiv.style.animation = 'fadeOut 2s forwards';
+            textDiv.textContent = text;
+            document.body.appendChild(textDiv);
+
+            setTimeout(() => textDiv.remove(), 2000);
+        }
+
+        // Mouse proximity detection for desktop
+        noBtn.addEventListener('mouseenter', () => {
+            moveNoButton();
+            const emojis = ['😢', '💔', '🥺'];
+            const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+            const message = sadMessages[noClickCount % sadMessages.length];
+            showSadEmoji(emoji, message);
+            noClickCount++;
+        });
+
+        // Touch handling for mobile
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            moveNoButton();
+            const emojis = ['😢', '💔', '🥺'];
+            const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+            const message = sadMessages[noClickCount % sadMessages.length];
+            showSadEmoji(emoji, message);
+            noClickCount++;
+
+            // Show crying GIF
+            const cryingGif = document.createElement('img');
+            cryingGif.src = 'https://media.giphy.com/media/d2lcHJTG5Tscg/giphy.gif';
+            cryingGif.className = 'crying-gif';
+            cryingGif.style.left = '50%';
+            cryingGif.style.top = '50%';
+            cryingGif.style.transform = 'translate(-50%, -50%)';
+            document.body.appendChild(cryingGif);
+
+            setTimeout(() => cryingGif.remove(), 3000);
+        });
+
+        // Prevent no button click
+        noBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            moveNoButton();
+        });
+
+        // YES BUTTON CELEBRATION
+        yesBtn.addEventListener('click', () => {
+            // Confetti explosion
+            const duration = 3 * 1000;
+            const animationEnd = Date.now() + duration;
+            const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 10001 };
+
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            const interval = setInterval(function () {
+                const timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+
+                const particleCount = 50 * (timeLeft / duration);
+
+                confetti({
+                    ...defaults,
+                    particleCount,
+                    origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+                    colors: ['#ff4d6d', '#ffa3b8', '#ffffff', '#c9184a']
+                });
+                confetti({
+                    ...defaults,
+                    particleCount,
+                    origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+                    colors: ['#ff4d6d', '#ffa3b8', '#ffffff', '#c9184a']
+                });
+            }, 250);
+
+            // Show celebration screen
+            setTimeout(() => {
+                document.getElementById('celebration').style.display = 'flex';
+
+                // Create rising balloons
+                for (let i = 0; i < 20; i++) {
+                    const balloon = document.createElement('div');
+                    balloon.textContent = '🎈';
+                    balloon.style.position = 'fixed';
+                    balloon.style.fontSize = '3rem';
+                    balloon.style.left = Math.random() * 100 + '%';
+                    balloon.style.bottom = '-100px';
+                    balloon.style.zIndex = '10002';
+                    document.body.appendChild(balloon);
+
+                    gsap.to(balloon, {
+                        y: -window.innerHeight - 200,
+                        x: (Math.random() - 0.5) * 200,
+                        duration: 3 + Math.random() * 2,
+                        ease: 'power1.out',
+                        delay: Math.random() * 0.5,
+                        onComplete: () => balloon.remove()
+                    });
+                }
+
+                // Create heart burst
+                for (let i = 0; i < 30; i++) {
+                    const heart = document.createElement('div');
+                    heart.textContent = ['❤️', '💕', '💖', '💗'][Math.floor(Math.random() * 4)];
+                    heart.style.position = 'fixed';
+                    heart.style.fontSize = '2rem';
+                    heart.style.left = '50%';
+                    heart.style.top = '50%';
+                    heart.style.zIndex = '10002';
+                    document.body.appendChild(heart);
+
+                    const angle = (Math.PI * 2 * i) / 30;
+                    const distance = 200 + Math.random() * 200;
+
+                    gsap.to(heart, {
+                        x: Math.cos(angle) * distance,
+                        y: Math.sin(angle) * distance,
+                        opacity: 0,
+                        duration: 1.5,
+                        ease: 'power2.out',
+                        onComplete: () => heart.remove()
+                    });
+                }
+            }, 500);
+
+            // Show final message
+            setTimeout(() => {
+                document.getElementById('final-message').style.display = 'flex';
+            }, 5000);
+        });
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            if (document.getElementById('celebration').style.display !== 'flex') {
+                positionNoButton();
+            }
+        });
+
+        // ---------------------------------------------------------
+        // GALLERY & SLIDESHOW LOGIC
+        // ---------------------------------------------------------
+
+        // List of all media files
+        const mediaFiles = [
+            // Photos
+            { type: 'image', src: 'photos/139016182_841503143077252_2673462837318732052_n.jpg' },
+            { type: 'image', src: 'photos/268997062_651131489581145_5955260960338765613_n.jpg' },
+            { type: 'image', src: 'photos/269739330_699201524394662_3832796738770663935_n.jpg' },
+            { type: 'image', src: 'photos/269748875_469830344497549_4326968646878669991_n.jpg' },
+            { type: 'image', src: 'photos/272083330_1002334277296417_5256082829754581852_n.jpg' },
+            { type: 'image', src: 'photos/272102897_339412791407241_1055473991891557496_n.jpg' },
+            { type: 'image', src: 'photos/272111681_200914182198419_6711812204993730369_n.jpg' },
+            { type: 'image', src: 'photos/272169499_428890215648986_3970856087835305930_n.jpg' },
+            { type: 'image', src: 'photos/272173803_666339637897373_848599041354145267_n.jpg' },
+            { type: 'image', src: 'photos/274798748_653894869005624_6040315056107687960_n.jpg' },
+            { type: 'image', src: 'photos/274966624_1760004747539878_2397793265014005944_n.jpg' },
+            { type: 'image', src: 'photos/274973807_493133282320868_6159178873653556684_n.jpg' },
+            { type: 'image', src: 'photos/274980983_1120615092085249_5574979324503598642_n.jpg' },
+            { type: 'image', src: 'photos/274999021_690571248626253_6521929338082236468_n.jpg' },
+            { type: 'image', src: 'photos/275032977_528404128615143_7478026935063965315_n.jpg' },
+            { type: 'image', src: 'photos/275033010_1028000304467417_6897940158282635075_n.jpg' },
+            { type: 'image', src: 'photos/275061806_5426210700730450_4543260163573557529_n.jpg' },
+            { type: 'image', src: 'photos/275145513_940699473118516_474741162277640133_n.jpg' },
+            { type: 'image', src: 'photos/286419063_716419009692898_433505795906923709_n.jpg' },
+            { type: 'image', src: 'photos/286462354_976484779706408_8672866448179575007_n.jpg' },
+            { type: 'image', src: 'photos/286741380_5817360958290420_2698394601892165720_n.jpg' },
+            { type: 'image', src: 'photos/286926442_544665117370593_2107778563692033949_n.jpg' },
+            { type: 'image', src: 'photos/286947287_363763322320319_564340872770636800_n.jpg' },
+            { type: 'image', src: 'photos/286969653_692755131825971_6796401424340782823_n.jpg' },
+            { type: 'image', src: 'photos/287101067_551801053279580_2553782959134645500_n.jpg' },
+            { type: 'image', src: 'photos/315517361_865073851473176_5525979833014703622_n (1).jpg' },
+            { type: 'image', src: 'photos/315517361_865073851473176_5525979833014703622_n.jpg' },
+            { type: 'image', src: 'photos/315525643_1121812245184349_9091265158411652021_n.jpg' },
+            { type: 'image', src: 'photos/315894967_460839259496767_7523903957532651205_n.jpg' },
+            { type: 'image', src: 'photos/321545893_1215076995767679_4183452857425301623_n.jpg' },
+            { type: 'image', src: 'photos/321603663_846372789908153_7662552418857843449_n.jpg' },
+            { type: 'image', src: 'photos/342682891_222751200394369_8325479357866496527_n.jpg' },
+            { type: 'image', src: 'photos/342741665_593832082704525_5766063382777463602_n.jpg' },
+            { type: 'image', src: 'photos/342873970_833491624929009_2605741730855289894_n.jpg' },
+            { type: 'image', src: 'photos/343975780_1638478869972200_5816015947019794610_n.jpg' },
+            { type: 'image', src: 'photos/344295620_1362518394602746_6954066403046490271_n.jpg' },
+            { type: 'image', src: 'photos/354775377_172363172491518_3601933275870824348_n.jpg' },
+            { type: 'image', src: 'photos/357347194_817737413356039_5252530151148490246_n.jpg' },
+            { type: 'image', src: 'photos/357651182_1281016606138360_1522518550879434042_n.jpg' },
+            { type: 'image', src: 'photos/357691608_6706097679421627_7088956488904244623_n.jpg' },
+            { type: 'image', src: 'photos/357714908_1989053688097079_5517765734034446086_n.jpg' },
+            { type: 'image', src: 'photos/357763518_1991834187828767_2251184589944167016_n.jpg' },
+            { type: 'image', src: 'photos/363876050_838192987945042_3238693235010333081_n.jpg' },
+            { type: 'image', src: 'photos/363901102_598852002330305_2252118573636874195_n.jpg' },
+            { type: 'image', src: 'photos/364218200_976227143690779_3050075933145161689_n.jpg' },
+            { type: 'image', src: 'photos/364251968_3107850099519898_397074630465987674_n.jpg' },
+            { type: 'image', src: 'photos/364550920_614927890787174_7004636952016339132_n.jpg' },
+            { type: 'image', src: 'photos/371162086_1259143198100817_6771239383976372644_n.jpg' },
+            // Videos
+            { type: 'video', src: 'photos/315979185_5938836339513446_1333185649795373282_n.mp4' },
+            { type: 'video', src: 'photos/316777130_5237902106321710_525536796474813306_n.mp4' },
+            { type: 'video', src: 'photos/322221256_5764536623635208_4473394523047176688_n.mp4' },
+            { type: 'video', src: 'photos/344467675_9142907382449198_1304473698725249828_n.mp4' },
+            { type: 'video', src: 'photos/365394775_6027553740682116_6891403423821572414_n.mp4' },
+            { type: 'video', src: 'photos/AQMBlt-2YeU1Nx54_PFNW8ZbteX7FiSpq9IfeEnNkZ0LurfNINj7BgxpX3y955y1Dqrg-RUYOlDD9FztR8yHQqLIaNQuRq4zJ2H-78KexzDXIXtEkwlJx2MZl4xoag.mp4' },
+            { type: 'video', src: 'photos/AQNPgqxYKI6AnJaLCxGMnjsoWKUMthXspQ6slcP7iZ07JpOlkeJEGfCLvXuS7wSGpnT5Nh5Cu_GZssoFJuG6cLDaLFlFxgDZ69I2IaIgLqi9ChWnyNLG8FZC2vS7BQ.mp4' },
+            { type: 'video', src: 'photos/AQOuchkbc3Ia57z0VNvwy9n1BrqyfxK4d8jkwkx2S2eTXLK8BrcB7hcMKl1aOZC-4vyUrst7pd_9VVExmSBbxXvxLm6tG_P9O5LXEoUeyC9JvBoEObnY5pWkDL0iTg.mp4' },
+            { type: 'video', src: 'photos/AQPqRwmNXcbfpwZiWz4_uuOvrxmYUC7gXb229nfcha1KAw6C-MY5vXq4QGQj7I1T7F8yag-cL7LStJi4DxCnbbCh7fe1UmoUO0-ZzSpsn6vdsv4OZ6APqhhWoce_bw.mp4' }
+        ];
+
+        // Lightbox Functions
+        let currentLightboxIndex = 0;
+
+        // Create Lightbox DOM
+        const lightbox = document.createElement('div');
+        lightbox.className = 'lightbox';
+        lightbox.innerHTML = `
+            <div class="lightbox-close">&times;</div>
+            <div class="lightbox-nav prev">&#10094;</div>
+            <div class="lightbox-nav next">&#10095;</div>
+            <div class="lightbox-content" id="lightbox-content"></div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxContent = document.getElementById('lightbox-content');
+        const closeBtn = lightbox.querySelector('.lightbox-close');
+        const prevBtn = lightbox.querySelector('.prev');
+        const nextBtn = lightbox.querySelector('.next');
+
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            updateLightboxContent();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            lightboxContent.innerHTML = ''; // Stop video playback
+            document.body.style.overflow = '';
+        }
+
+        function updateLightboxContent() {
+            const item = mediaFiles[currentLightboxIndex];
+            lightboxContent.innerHTML = '';
+
+            if (item.type === 'video') {
+                const video = document.createElement('video');
+                video.src = item.src;
+                video.controls = true;
+                video.autoplay = true;
+                lightboxContent.appendChild(video);
+            } else {
+                const img = document.createElement('img');
+                img.src = item.src;
+                lightboxContent.appendChild(img);
+            }
+        }
+
+        function nextSlide() {
+            currentLightboxIndex = (currentLightboxIndex + 1) % mediaFiles.length;
+            updateLightboxContent();
+        }
+
+        function prevSlide() {
+            currentLightboxIndex = (currentLightboxIndex - 1 + mediaFiles.length) % mediaFiles.length;
+            updateLightboxContent();
+        }
+
+        // Event Listeners for Lightbox
+        closeBtn.addEventListener('click', closeLightbox);
+        nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); });
+        prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // Initialize Slideshow (top of journey section)
+        function initSlideshow() {
+            const container = document.getElementById('slideshow');
+            // Select random images for slideshow logic
+            const shuffled = [...mediaFiles].sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, 5); // Show top 5 random items
+
+            selected.forEach((item, index) => {
+                const el = item.type === 'video' ? document.createElement('video') : document.createElement('img');
+                el.src = item.src;
+                el.className = 'slideshow-item';
+                if (index === 0) el.classList.add('active');
+                if (item.type === 'video') {
+                    el.muted = true;
+                    el.loop = true;
+                    el.playsInline = true;
+                }
+                container.appendChild(el);
+            });
+
+            // Auto rotation
+            let slideIndex = 0;
+            const slides = container.children;
+
+            setInterval(() => {
+                if (slides.length === 0) return;
+                slides[slideIndex].classList.remove('active');
+                // Pause if it was video
+                if (slides[slideIndex].tagName === 'VIDEO') slides[slideIndex].pause();
+
+                slideIndex = (slideIndex + 1) % slides.length;
+
+                slides[slideIndex].classList.add('active');
+                // Play if video
+                if (slides[slideIndex].tagName === 'VIDEO') slides[slideIndex].play();
+            }, 4000);
+        }
+
+        // Initialize Gallery Grid
+        function initGallery() {
+            const gallery = document.getElementById('gallery');
+
+            mediaFiles.forEach((item, index) => {
+                const el = document.createElement('div');
+                el.className = `gallery-item ${item.type === 'video' ? 'video-item' : ''}`;
+
+                if (item.type === 'video') {
+                    const video = document.createElement('video');
+                    video.src = item.src;
+                    video.muted = true; // Mute preview
+                    el.appendChild(video);
+
+                    // Hover effect to play preview
+                    el.addEventListener('mouseenter', () => video.play());
+                    el.addEventListener('mouseleave', () => {
+                        video.pause();
+                        video.currentTime = 0;
+                    });
+                } else {
+                    const img = document.createElement('img');
+                    img.src = item.src;
+                    img.loading = 'lazy'; // Performance optimization
+                    el.appendChild(img);
+                }
+
+                // Click to open lightbox
+                el.addEventListener('click', () => openLightbox(index));
+
+                gallery.appendChild(el);
+            });
+
+            // GSAP stagger animation for gallery items
+            gsap.from('.gallery-item', {
+                scrollTrigger: {
+                    trigger: '#gallery',
+                    start: 'top 80%',
+                },
+                opacity: 0,
+                y: 50,
+                stagger: 0.1,
+                duration: 0.8,
+                ease: 'power2.out'
+            });
+        }
+
+        // Start initialization
+        initSlideshow();
+        initGallery();
+    </script>
+</body>
+
+</html>
